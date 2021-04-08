@@ -6,12 +6,12 @@ export const criaData = (data) => {
   const conteudo = `<p class="content-data">${data.format('DD/MM/YYYY')}</p>`;
   dataTopo.innerHTML = conteudo;
 
-  tarefas.forEach((tarefa) => {
+  tarefas.forEach((tarefa, id) => {
     const dia = moment(tarefa.dataFormatada, 'DD/MM/YYYY');
 
     const diff = data.diff(dia);
     if (diff === 0) {
-      dataTopo.appendChild(Tarefa(tarefa));
+      dataTopo.appendChild(Tarefa(tarefa, id));
     }
   });
 
